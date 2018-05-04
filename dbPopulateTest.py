@@ -34,9 +34,9 @@ lastNames = ["Sanchez", "Doe", "James", "Jones", "Guiterrez", "Bryant",
         "Black", "Wilson", "Dillard", "Burnett", "Rodriguez", "Simpson",
         "Lucero", "Dean", "Segura", "Wilson", "Paul", "Cranston", "Hughes",
         "Thomas", "Velez", "Salazar", "Sisneros", "Peters", "Hunt", "Mills",
-        "Grey", "Johnson", "Mitchell", "Carter", "Perez", "Neslson", "Roberts",
+        "Grey", "Johnson", "Mitchell", "Carter", "Perez", "Nelson", "Roberts",
         "Collins", "Edwards", "Cook", "Bell", "Murphy", "Evans", "Myers",
-        "Campbell", "Morrs", "Rogers", "Bailey", "Rivera", "Scott", "Turner",
+        "Campbell", "Morris", "Rogers", "Bailey", "Rivera", "Scott", "Turner",
         "Gomez", "Murray", "Freeman", "Webb", "Porter", "Tucker", "Hunter", 
         "Ortiz", "Gibson", "McDonald", "Lane", "Fox", "Harper", "Lewis",
         "Armstrong", "Weaver", "Greene", "Green", "Andrews"]
@@ -48,6 +48,6 @@ domainNames = ["hotmail.com", "yahoo.com", "gmail.com", "cnm.edu",
 
 dbPop = DatabasePopulater(firstNames, lastNames, domainNames)
 
-dbPop.createRandomCustomers(10)
+dbPop.createRandomCustomers(1000)
 
 dbPop.writeCustomerFile()
