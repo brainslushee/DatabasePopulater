@@ -12,7 +12,23 @@
 
 from DatabasePopulater import *
 
+def readFiles(filename):
+    # list to store values and return from function
+    names = []
 
+    # read in file and strip newlines from each line
+    with open(filename) as f:
+        names = f.read().splitlines()
+
+    f.close()
+
+    # returns a list
+    return names
+
+
+firstNames = readFiles("resources/firstNames.txt")
+lastNames = readFiles("resources/lastNames.txt")
+domainNames = readFiles("resources/domainNames.txt")
 
 
 dbPop = DatabasePopulater(firstNames, lastNames, domainNames)
@@ -20,3 +36,7 @@ dbPop = DatabasePopulater(firstNames, lastNames, domainNames)
 dbPop.createRandomCustomers(1000)
 
 dbPop.writeCustomerFile()
+
+
+print("List of first names, last names, and email addresses")
+print ("generated and written to file: customerList.txt")
