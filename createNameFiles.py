@@ -49,7 +49,7 @@ def writeListToFile(filename, nameList):
     f.close()
 
 
-writeListToFile("/resources/firstNames.txt", firstNames)
-writeListToFile("/resources/lastNames.txt", lastNames)
-writeListToFile("/resources/domainNames.txt", domainNames)
+writeListToFile("resources/firstNames.txt", firstNames)
+writeListToFile("resources/lastNames.txt", lastNames)
+writeListToFile("resources/domainNames.txt", domainNames)
 
