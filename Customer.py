@@ -18,10 +18,15 @@ class Customer:
         self.emailAddress = emailAddress
 
     def getFirstName(self):
-        return self.firstName
+        return str(self.firstName)
 
     def getLastName(self):
-        return self.lastName
+        return str(self.lastName)
     
     def getEmailAddress(self):
-        return self.Email
+        return str(self.Email)
+
+    def toString(self):
+        formatString = "(\"{0}\", \"{1}\", \"{2}\")".format(self.firstName,
+                self.lastName, self.emailAddress)
+        return formatString

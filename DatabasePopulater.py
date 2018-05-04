@@ -4,6 +4,7 @@
 
 
 import random
+from Customer import *
 
 class DatabasePopulater:
     def __init__(self, firstNames, lastNames, domainNames):
@@ -21,27 +22,37 @@ class DatabasePopulater:
                 @param: amount
                         Pass the amount of customers to generate
          '''
+
+        firstName = ""
+        lastName = ""
+        email = ""
+
         for i in range(1, amount):
+            #---------- create customer object
+            customer = Customer(firstName, lastName, email)
+
             #----------- select randomly from each respective list
             randFirstNamesIndex = random.randint(0, len(self.firstNames) - 1)
             randLastNamesIndex = random.randint(0, len(self.lastNames) - 1)
             domainName = self.domainNames[i % len(self.domainNames)]
 
-            #----------- first name/last name
-            firstName = self.firstNames[randFirstNamesIndex]
-            lastName = self.lastNames[randLastNamesIndex]
+            #----------- set first name/last name
+            customer.setFirstName(self.firstNames[randFirstNamesIndex])
+            customer.setLastName(self.lastNames[randLastNamesIndex])
 
             #----------- create email address
             # create email in format of first letter of first name plus last name
             randomNum = random.randint(1, 100)
-            email = firstName[0] + lastName + str(((i * 1000000) % randomNum) * 34 + 1) + "@" + domainName 
-
-            #---------- format entire string
-            #format into a string for to work with INSERT statement
-            randomCustomer = "(\"{0}\", \"{1}\", \"{2}\")".format(firstName, lastName, email)
-        
+            email = customer.getFirstName()[0] + \
+                    customer.getLastName() + \
+                    str(((i * 1000000) % randomNum) * 34 + 1) + \
+                    "@" + domainName  
+                    
+            customer.setEmailAddress(email) 
+    
+       
             #----------- append to list
-            self. customerList.append(randomCustomer)
+            self.customerList.append(customer.toString())
 
     
     def writeCustomerFile(self):
